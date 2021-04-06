@@ -23,7 +23,7 @@ var server = http.createServer((req, res) => {
 
         let data = registerUser(User);
         
-        data(User).then((data)=>{
+        data.then((data)=>{
             res.writeHead(200, { contentType: 'text' })
             res.end(JSON.stringify(data))
         });
@@ -32,7 +32,7 @@ var server = http.createServer((req, res) => {
 
         let data =deleteUser({ email: Path.query.email });
 
-        data().then((data)=>{
+        data.then((data)=>{
             res.writeHead(200, { contentType: 'text' })
             res.end(JSON.stringify(data))
         });
@@ -41,7 +41,7 @@ var server = http.createServer((req, res) => {
 
         let data = updateUser({ email: Path.query.email }, { age: Path.query.age });
 
-        data().then((data)=>{
+        data.then((data)=>{
             res.writeHead(200, { contentType: 'text' })
             res.end(JSON.stringify(data))
         });
@@ -50,16 +50,16 @@ var server = http.createServer((req, res) => {
 
         let data = getUser({ email: Path.query.email});
 
-        data().then((data)=>{
+        data.then((data)=>{
             res.writeHead(200, { contentType: 'text' })
             res.end(JSON.stringify(data))
         })
 
     } else if (page === '/Reads') {
 
-        let data = getUsers({ email: Path.query.emails });
-        
-        data().then((data)=>{
+        let data = getUsers({});
+
+        data.then((data)=>{
             res.writeHead(200, { contentType: 'text' })
             res.end(JSON.stringify(data))
         })
