@@ -8,7 +8,7 @@ mong.connect('mongodb://127.0.0.1:27017/User', {
 
 let startNodeserver = async () => {
     // express startup.
-    server = await require('');
+    server = await require('./route/userRoute');
 
     return new Promise((resolve, reject) => {
         server.listen(4000, (err) => {
